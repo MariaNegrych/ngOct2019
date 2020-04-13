@@ -1,4 +1,8 @@
 <router-outlet></router-outlet>
-<hr>
-<app-user *ngFor="let su of users" [user]="su"></app-user>
+<div id="choosenUser">
+  <app-user [user]="choosenUser"></app-user>
 
+</div>
+<hr>
+<app-user *ngFor="let su of users" [user]="su" (choosenUser)="forwardBubbleUser($event)"></app-user>
+<router-outlet></router-outlet>

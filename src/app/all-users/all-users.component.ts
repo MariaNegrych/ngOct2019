@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {UserComponent} from '../user/user.component';
 
 @Component({
   selector: 'app-all-users',
@@ -9,7 +9,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AllUsersComponent implements OnInit {
 
+
   users: UserModel[];
+  choosenUser: UserModel;
 
 
   constructor(private activatedRoute: ActivatedRoute) {
@@ -20,4 +22,9 @@ export class AllUsersComponent implements OnInit {
   ngOnInit() {
   }
 
+  forwardBubbleUser(event) {
+    console.log(event);
+    this.choosenUser = event;
+
+  }
 }
