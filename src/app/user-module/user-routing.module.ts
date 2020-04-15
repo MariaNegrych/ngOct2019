@@ -9,7 +9,7 @@ import {PostResolveService} from '../post-module/services/post-resolve.service';
 const routes: Routes = [
   {
     path: '',
-    component: AllUsersComponent,
+    component: AllUsersComponent, // app.component.html
     resolve: {allUsers: UserResolverService},
     loadChildren: () => import('../post-module/post.module').then(m => m.PostModule)
   }

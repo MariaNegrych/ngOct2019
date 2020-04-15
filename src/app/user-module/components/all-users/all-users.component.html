@@ -1,4 +1,3 @@
-<router-outlet></router-outlet>
 <hr>
 
 <div>
@@ -10,5 +9,7 @@
   {{xxx?.address.geo.lng}}
 
 </div>
+<br>
 <app-user *ngFor="let su of users" [user]="su" (forwardUserData)="catchUserData($event)"></app-user>
+<router-outlet></router-outlet>
 

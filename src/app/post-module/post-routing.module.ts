@@ -5,7 +5,11 @@ import {AllPostsComponent} from './components/all-posts/all-posts.component';
 
 
 const routes: Routes = [
-  {path: ':id/posts', component: AllPostsComponent, resolve: {xxx: PostResolveService}}
+  {
+    path: ':id/posts',
+    component: AllPostsComponent, // app.component.html
+    resolve: {xxx: PostResolveService}
+  }
 ];
 
 @NgModule({
