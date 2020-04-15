@@ -8,13 +8,13 @@ import {UserComponent} from './components/user/user.component';
 const routes: Routes = [
   {
     path: '', // /users
-    component: AllUsersComponent,
+    component: AllUsersComponent, // app.html
     resolve: {allUsers: UserResolverService},
     children: [
       {
 
         path: ':id', // users/:id
-        component: UserComponent, // AllUsersComponent
+
         loadChildren: () => import('../post/post.module').then(m => m.PostModule)
       }
     ]

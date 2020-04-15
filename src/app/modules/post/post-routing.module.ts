@@ -11,8 +11,11 @@ const routes: Routes = [
     path: '',
     children: [
       // users/:id/posts
-      {path: 'posts', component: AllPostsComponent, resolve: {xxx: PostResolveService}}
-
+      {
+        path: 'posts',
+        component: AllPostsComponent, // all-posts.html
+        resolve: {xxx: PostResolveService}
+      }
     ]
   },
 
