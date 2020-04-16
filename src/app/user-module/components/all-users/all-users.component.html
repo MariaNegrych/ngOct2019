@@ -1,4 +1,4 @@
-<router-outlet></router-outlet>
+
 <hr>
 
 <div>
@@ -12,3 +12,4 @@
 </div>
 <app-user *ngFor="let su of users" [user]="su" (forwardUserData)="catchUserData($event)"></app-user>
 
+<router-outlet></router-outlet>

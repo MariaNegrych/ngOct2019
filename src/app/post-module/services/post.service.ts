@@ -12,7 +12,10 @@ export class PostService {
 
   getPostsOfUserById(id): Observable<PostModel[]> {
     return this.http.get<PostModel[]>(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
+  }
 
+  getAllPosts(): Observable<PostModel[]> {
+    return this.http.get<PostModel[]>(`https://jsonplaceholder.typicode.com/posts`);
 
   }
 }

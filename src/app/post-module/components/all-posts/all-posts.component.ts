@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PostService} from '../services/post.service';
+import {PostService} from '../../services/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -17,13 +17,22 @@ export class AllPostsComponent implements OnInit {
     private router: Router,
   ) {
 
+    console.log(!!this.activatedRoute.snapshot.params.id);
+    if (this.activatedRoute.snapshot.params.id) {
+      this.activatedRoute
+        .params
+        .subscribe(params =>
+          this.postService
+            .getPostsOfUserById(params.id)
+            .subscribe(postsFromServer => this.posts = postsFromServer));
+    } else {
+      this.activatedRoute.data.subscribe(value => {
+        console.log(value.allPosts);
+        this.posts = value.allPosts;
+      });
 
-    this.activatedRoute
-      .params
-      .subscribe(params =>
-        this.postService
-          .getPostsOfUserById(params.id)
-          .subscribe(postsFromServer => this.posts = postsFromServer));
+    }
+
 
     //
     // this.activatedRoute.queryParams.subscribe(queyParams =>
@@ -40,5 +49,4 @@ export class AllPostsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
+import {UserService} from '../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class AllUsersComponent implements OnInit {
   xxx: any;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private userService) {
+  constructor(private activatedRoute: ActivatedRoute) {
     console.log(this.activatedRoute.snapshot.data);
     this.users = this.activatedRoute.snapshot.data.allUsers;
   }
