@@ -14,7 +14,7 @@ export class AllUsersComponent implements OnInit {
   xxx: any;
 
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private userService) {
     console.log(this.activatedRoute.snapshot.data);
     this.users = this.activatedRoute.snapshot.data.allUsers;
   }

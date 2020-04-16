@@ -11,6 +11,7 @@ import {UserResolverService} from './services/user-resolver.service';
 import {PostComponent} from './post/post.component';
 import {AllPostsComponent} from './all-posts/all-posts.component';
 import {PostResolveService} from './services/post-resolve.service';
+import {UserService} from './services/user.service';
 
 
 const routes: Routes = [
@@ -18,9 +19,11 @@ const routes: Routes = [
   {path: '', component: HelloComponent},
   // localhos:4200/users ->all Users Cpmponent
   {
-    path: 'users', component: AllUsersComponent, resolve: {allUsers: UserResolverService}, children: [
+    path: 'users',
+    component: AllUsersComponent, // app.component.html in -> router outlet
+    resolve: {allUsers: UserResolverService},
+    children: [
       {path: ':id/posts', component: AllPostsComponent, resolve: {xxx: PostResolveService}}
-
     ]
   },
 ];
