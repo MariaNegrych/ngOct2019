@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,7 +9,6 @@ import {ActivatedRoute} from '@angular/router';
 export class AllUsersComponent implements OnInit {
 
   users: UserModel[];
-
   xxx: any;
 
 

@@ -5,14 +5,14 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class CommentService {
 
   constructor(private http: HttpClient) {
   }
 
-  getPostsOfUserById(id): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
 
+  getAllComments(): Observable<CommentModel[]> {
+    return this.http.get<CommentModel[]>('https://jsonplaceholder.typicode.com/comments');
 
   }
 }
