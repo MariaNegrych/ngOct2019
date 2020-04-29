@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {FirstChildComponent} from './first-child/first-child.component';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,23 @@ import {Component} from '@angular/core';
     background: silver
   }`]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
+  @ViewChild('target', {static: false})
+  target;
+  @ViewChild(FirstChildComponent, {static: false})
+  firstChild: FirstChildComponent;
 
 
   constructor() {
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.target.nativeElement.innerText);
+
+    console.log(this.firstChild);
+    this.firstChild.hello();
+
   }
 
 
