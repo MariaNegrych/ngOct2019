@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+
+  <div>
+    <input formControlName="id" type="number">
+  </div>
+  <div>
+    <input formControlName="title">
+  </div>
+  <div>
+    <input formControlName="body">
+  </div>
+
+  <div>
+    <select formControlName="type">
+
+      <option value="high">high</option>
+      <option value="medium">medium</option>
+      <option value="low">low</option>
+    </select>
+  </div>
+
+  <button (click)="save()">save</button>
+
+</form>
+
+<app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+
+

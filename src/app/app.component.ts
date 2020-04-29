@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,26 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
+  form: FormGroup;
 
-  constructor() {
+  todos: Todo[] = [];
+  private http: HttpClient;
+  constructor(private fb: FormBuilder) {
+
+
+    this.form = this.fb.group({
+      id: ['', Validators.required],
+      title: ['', Validators.required],
+      body: ['', Validators.required],
+      type: ['', Validators.required]
+
+    });
   }
 
 
+  save() {
+
+    this.todos.push(this.form.value);
+
+  }
 }
