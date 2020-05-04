@@ -31,4 +31,25 @@ export class UserComponent {
         relativeTo: this.activatedRoute
       });
   }
+
+  favorite(user: UserModel) {
+    console.log(localStorage.getItem('favorite'));
+    console.log(!!localStorage.getItem('favorite'));
+
+    if (!localStorage.getItem('favorite')) {
+      const array = [];
+      array.push(user);
+      localStorage.setItem('favorite', JSON.stringify(array));
+    } else {
+      const arrayJSON = localStorage.getItem('favorite');
+      const array = JSON.parse(arrayJSON);
+      array.push(user);
+      const value = JSON.stringify(array);
+      localStorage.setItem('favorite', value);
+
+
+    }
+
+
+  }
 }

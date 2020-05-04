@@ -1,5 +1,15 @@
 <h1>{{msg}}</h1>
 
+<hr>
+<h3>favs</h3>
+
+<div *ngFor="let favoriteUser of favorites">
+  {{favoriteUser | json}}
+
+</div>
+
+<button (click)="clearLS()">clear ls</button>
+<hr>
 
 <a routerLink="/">hello component</a>
 <br>

@@ -10,11 +10,20 @@ import {UserService} from './services/user.service';
 export class AppComponent implements OnInit {
   msg = 'users';
 
+  favorites: any[];
+
   constructor() {
+
+
   }
 
   ngOnInit(): void {
+    this.favorites = JSON.parse(localStorage.getItem('favorite'));
+
   }
 
 
+  clearLS() {
+    localStorage.clear();
+  }
 }
